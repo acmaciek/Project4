@@ -1,0 +1,12 @@
+SAAnswer
+Information Hiding
+
+MCSAAnswer
+Peanut butter and jelly
+
+MCMAAnswer
+3
+Harry Potter
+Bilbo Baggins
+Tom Riddle
+
