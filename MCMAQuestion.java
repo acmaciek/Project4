@@ -37,7 +37,7 @@ public class MCMAQuestion extends MCQuestion{
 		MCAnswer a = null; //Value to temproraily store answers
 		for (int i = 0; i < numberOfAnswers; i++){
 			a = new MCAnswer(scan);
-			listOfAnswers.add(a); //Adds answers to list
+			answers.add(a); //Adds answers to list
 		}
 	}
 	/*
@@ -85,7 +85,7 @@ public class MCMAQuestion extends MCQuestion{
 				continue;
 			}
 			
-			studentAnswer.add(listOfAnswers.get(((int)(current - 'a')))); //Sets student answer to 
+			studentAnswer.add(answers.get(((int)(current - 'a')))); //Sets student answer to 
 																				 //to the index of the
 																				 //of the selected answer
 		}
@@ -119,10 +119,10 @@ public class MCMAQuestion extends MCQuestion{
 		// TODO Auto-generated method stub
 		pWrite.println("MCMAQuestion"); //Saves private info
 		pWrite.println(maxValue);
-		pWrite.println(questionText);
+		pWrite.println(text);
 		pWrite.println(baseCredit);
 		pWrite.println(numberOfAnswers);
-		for (MCAnswer ans: listOfAnswers){ //Saves the credit separately from the answer
+		for (MCAnswer ans: answers){ //Saves the credit separately from the answer
 			pWrite.print(ans.getCredit(ans) + " ");
 			ans.save(pWrite); //Save answer
 		}
@@ -135,7 +135,7 @@ public class MCMAQuestion extends MCQuestion{
 	 *Description: Saves the student answers.
 	 */
 	@Override
-	public void saveStudentAnswer(PrintWriter pWrite){
+	public void saveStudentAnswers(PrintWriter pWrite){
 		pWrite.println("MCMAAnswer");
 		pWrite.println(studentAnswer.size());
 		for (MCAnswer ans: studentAnswer){
@@ -149,7 +149,7 @@ public class MCMAQuestion extends MCQuestion{
 	 * Parameter: Scanner
 	 * Description: Scans in student answers from files.
 	 */
-	public void restoreStudentAnswer(Scanner scan){
+	public void restoreStudentAnswers(Scanner scan){
 		int size = 0;
 		size = Integer.parseInt(scan.nextLine()); //Converts string to int
 		for (int i = 0; i < size; i++){

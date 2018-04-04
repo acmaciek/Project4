@@ -75,10 +75,7 @@ public class Exam {
 	}
 
 	public void getAnswerFromStudent(int position) {
-		if(position < 0 || position >= this.questions.size()) {
-			return; 
-		}
-		this.questions.get(position).getAnswerFromStudent(); 	
+		this.questions.get(position-1).getAnswerFromStudent(); 	
 	}
 	
 
@@ -110,6 +107,12 @@ public class Exam {
 	}
 	
 	public void saveStudentAnswers(PrintWriter file) {
+		//Scanner scan = ScannerFactory.getKeyboardScanner();
+		//String name = scan.nextLine();
+		//file.println(name);
+		//file.println();
+		System.out.println("Please enter your name: ");
+		
 		for(Question q : questions) {
 			q.saveStudentAnswers(file);
 		}
@@ -118,6 +121,7 @@ public class Exam {
 	public void restoreStudentAnswers(Scanner file) {
 		int i = 0;
 		int length = this.questions.size();
+		System.out.println("# OF QUESTIONS: " + questions.size());
 		while(file.hasNext()) {
 			String aType = file.nextLine();
 			if(aType.equals("SAAnswer")) {

@@ -10,7 +10,7 @@ public abstract class Question{
 	protected String text;
 	protected Answer rightAnswer;
 	protected Answer studentAnswer;
-	protected double maxValue=0;
+	protected double maxValue = 0;
 	
 	protected Question(String txt, double mxValue) {
 		this.text = txt;
@@ -54,6 +54,11 @@ public abstract class Question{
 			studentAnswer = new MCSAAnswer(file.nextLine(), 0.0);
 		}
 	
+	}
+
+	public void saveStudentAnswer(PrintWriter pWrite) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

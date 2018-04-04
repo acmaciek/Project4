@@ -10,9 +10,13 @@ import java.util.Scanner;
 abstract class MCQuestion extends Question{
 
 	protected ArrayList<MCAnswer> answers;
+	protected int numberOfAnswers;
+	protected double value;
 
 	MCQuestion(String text, double maxValue) {
 		super(text, maxValue);
+		numberOfAnswers = 0;
+		value = 0.0;
 		answers = new ArrayList<MCAnswer>();
 	}
 	
@@ -21,10 +25,26 @@ abstract class MCQuestion extends Question{
 		this.answers = new ArrayList<MCAnswer>();
 	}
 	 
-	public abstract void print();
+	/*
+	 * print
+	 * Prints the question along with the answers and their positions.
+	 */
+	public void print(){
+		if (this instanceof MCSAQuestion){
+			System.out.println("MCSA Question\n" + text);
+		}
+		else if (this instanceof MCMAQuestion){
+			System.out.println("MCMA Question\n" + text);
+		}
+		for (int i = 0; i < answers.size(); i++){
+			System.out.print((char)('a' + i) + ". ");
+			answers.get(i).print(); //Adds 1 to position since Answer print assumes
+		}									   //the value to be at least 1
+	}
 	
 	public void addAnswer(MCAnswer Ans) {
 		answers.add(Ans);
+		numberOfAnswers++;
 	}
 
  	public void reorderAnswers() {
@@ -34,7 +54,7 @@ abstract class MCQuestion extends Question{
  	public double getValue(MCAnswer Ans) {
 		double score = 0;
 		for(Answer a : answers) {
-			score += Ans.getCredit(a);
+			score += a.getCredit(Ans);
 		}
 		return this.maxValue * score;
 	}

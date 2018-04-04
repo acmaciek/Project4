@@ -26,7 +26,7 @@ class SAQuestion extends Question{
 	//===============================================================================
 
 	public void getAnswerFromStudent() {
-		
+		print();
 		Scanner scan = ScannerFactory.getKeyboardScanner();
 		studentAnswer = new SAAnswer(scan.nextLine());
  	}
@@ -61,7 +61,7 @@ class SAQuestion extends Question{
 		file.println(this.text);
 		
 		SAAnswer ans = (SAAnswer)rightAnswer;
-		file.println(ans.getString()+ "\n");
+		file.println(ans.getString()+ "\n\n");
 		
 	}
 	//===============================================================================

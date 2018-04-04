@@ -25,7 +25,7 @@ public class MCSAQuestion extends MCQuestion{
 		MCAnswer a = null;
 		for (int i = 0; i < numberOfAnswers; i++){
 			a = new MCAnswer(scan);
-			listOfAnswers.add(a);
+			answers.add(a);
 		}
 	}
 	
@@ -68,7 +68,7 @@ public class MCSAQuestion extends MCQuestion{
 			studentAnswerText = (char) scan.nextLine().charAt(0); //Gets the first char entered
 		}
 		System.out.println();
-		studentAnswer = listOfAnswers.get(((int)(studentAnswerText - 'a'))); //Sets student answer to 
+		studentAnswer = answers.get(((int)(studentAnswerText - 'a'))); //Sets student answer to 
 	}																		 //to the index of the
 																			 //of the selected answer
 	/*
@@ -92,9 +92,9 @@ public class MCSAQuestion extends MCQuestion{
 		// TODO Auto-generated method stub
 		pWrite.println("MCSAQuestion"); //Information to be saved
 		pWrite.println(maxValue);
-		pWrite.println(questionText);
+		pWrite.println(text);
 		pWrite.println(numberOfAnswers);
-		for (MCAnswer ans: listOfAnswers){ //Saves all answers. Credit is separate from the answer object.
+		for (MCAnswer ans: answers){ //Saves all answers. Credit is separate from the answer object.
 			pWrite.print(ans.getCredit(ans) + " ");
 			ans.save(pWrite);
 		}
@@ -102,5 +102,4 @@ public class MCSAQuestion extends MCQuestion{
 		pWrite.println();
 		
 	}
-
 }

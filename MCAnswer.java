@@ -80,4 +80,8 @@ public class MCAnswer extends Answer{
 		pWrite.println(text);
 	}
 	
+	public String getString(){
+		return text;
+	}
+	
 }
