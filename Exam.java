@@ -9,13 +9,14 @@ public class Exam {
 
 	private ArrayList<Question> questions;  //arrayList of questions
 	private String text; 
+	private String name;
 	
 	public Exam(String txt) { //Constructor
 		text = txt; 
 		questions = new ArrayList<Question>(); //initialize questions
 	}
 
-	public void AddQuestion(Question q) {
+	public void addQuestion(Question q) {
 		this.questions.add(q);
 	}
 	
@@ -90,6 +91,13 @@ public class Exam {
 		System.out.println("Your total score for this exams is: " + this.getValue() + " points");
 	}
 	
+	public void saveScoresToFile(PrintWriter file){
+		file.print(name + ","  + this.getValue());
+		for(Question q : questions) {
+			file.print("," + q.getValue());
+		}
+	}
+	
 
 	
 	public void takeExam() {	
@@ -107,11 +115,13 @@ public class Exam {
 	}
 	
 	public void saveStudentAnswers(PrintWriter file) {
-		//Scanner scan = ScannerFactory.getKeyboardScanner();
-		//String name = scan.nextLine();
-		//file.println(name);
-		//file.println();
+		file.println(text);
+		file.println();
+		Scanner scan = ScannerFactory.getKeyboardScanner();
 		System.out.println("Please enter your name: ");
+		String name = scan.nextLine();
+		file.println(name);
+		file.println();
 		
 		for(Question q : questions) {
 			q.saveStudentAnswers(file);
@@ -122,6 +132,7 @@ public class Exam {
 		int i = 0;
 		int length = this.questions.size();
 		System.out.println("# OF QUESTIONS: " + questions.size());
+		name = file.next();
 		while(file.hasNext()) {
 			String aType = file.nextLine();
 			if(aType.equals("SAAnswer")) {
