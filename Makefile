@@ -45,10 +45,10 @@ Exam.class:  Exam.java Question.class Answer.class
 ExamGrader.class: ExamGrader.java Exam.class Question.class Answer.class
 	javac ExamGrader.java
 
-ExamGrader.class: ExamBuilder.java Exam.class Question.class Answer.class
+ExamBuilder.class: ExamBuilder.java Exam.class Question.class Answer.class
 	javac ExamBuilder.java
 
-ExamGrader.class: ExamTaker.java Exam.class Question.class Answer.class
+ExamTaker.class: ExamTaker.java Exam.class Question.class Answer.class
 	javac ExamTaker.java
 
 clean:
