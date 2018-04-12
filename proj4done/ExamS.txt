@@ -1,0 +1,28 @@
+Exam1
+
+2018-04-11T18:44:29.331
+
+SAQuestion
+10.0
+What continent is Japan on?
+MCMAQuestion
+10.0
+What is the capital of Germany?
+10.0
+5
+10.0 Berlin
+0.0 Paris
+0.0 SOfia
+0.0 Bergen
+0.0 Oslo
+
+MCSAQuestion
+10.0
+What is the cpital of Bulgaira?
+5
+10.0 Sofia
+0.0 Burgas
+0.0 Berlin
+0.0 France
+0.0 Italy
+
