@@ -1,13 +1,19 @@
 import java.util.*;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import java.io.*;
 
 
 public class ExamTaker {
-	
+	public static JFrame frame;
+
 	public static void main(String [] args) throws IOException {
 		
-		System.out.println("Please enter the name of the text file with the exam: ");
-		String fileName = ScannerFactory.getKeyboardScanner().nextLine(); //get the file name containing exam
+		frame=new JFrame();	
+		 
+		String fileName = (JOptionPane.showInputDialog(frame, "Enter name of text file containing the exam: "));
 		File examFile = new File(fileName); //create new File 
 		FileOutputStream ans = new FileOutputStream("StudentAnswer.txt", false);
 		FileOutputStream exam = new FileOutputStream("Exam.txt", false);
@@ -15,20 +21,16 @@ public class ExamTaker {
 		PrintWriter examW = new PrintWriter(exam);
 		Scanner fileScanner = new Scanner(examFile);
 		Exam exam1 = new Exam(fileScanner);
-		//exam1.reorderQuestions();
-		//for(int i=0; i < exam1.getNumberOfQuestions(); i++) {
-		//	exam1.reorderMCAnswers(i);
-		//}
+	
 		exam1.save(examW);
 
 		while(true) {
-			System.out.printf("If you want to answer the question say yes");
-			String userChange = ScannerFactory.getKeyboardScanner().nextLine();
+ 			String userChange = JOptionPane.showInputDialog(frame, "If You want to answer the question type 'yes' ");
 			if(userChange.equals("yes") || userChange.equals("Yes")) {
-			System.out.printf("Enter number of the question you want to answer (Max:" + exam1.getNumberOfQuestions() + " ): ");
-			String userInput = ScannerFactory.getKeyboardScanner().nextLine();
+			//System.out.printf("Enter number of the question you want to answer (Max:" + exam1.getNumberOfQuestions() + " ): ");
+			String userInput = JOptionPane.showInputDialog(frame, "Enter number of the question you want to answer (Max:" + exam1.getNumberOfQuestions() + " ): ");
 			int questionNumber = Integer.parseInt(userInput);
-			System.out.printf("Enter your answer for Question " + questionNumber + ": ");
+			JOptionPane.showInputDialog("Enter your answer for Question " + questionNumber + ": ");
 			exam1.getAnswerFromStudent((questionNumber));
 			}
 			else {
