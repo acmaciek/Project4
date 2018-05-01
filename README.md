@@ -2,5 +2,5 @@
 Group Project 4 for CS342
 
 Alex - ExamBuilder
-Maciek - ExamTester
+Maciek - ExamTaker
 Tim - ExamGrader
