@@ -1,7 +1,7 @@
 CS342 Project 4
 
 Tim Peloza
-Macej Girek
+Maciej Girek
 Alxander Simeonovski
 
 For this project we each contributed the following classes from our proj 3:
