@@ -9,17 +9,18 @@ For this project we each contributed the following classes from our proj 3:
 Alex:
 Answer, SAQuestion, SAAnswer, NumQuestion, and NumAnswer.
 
-Macej:
+Maciej:
 Exam, Question, and MCQuestion
 
 Tim:
 MCAnswer, MCSAQuestion, MCSAAnswer, MCMAQuestion, MCMAAnswer,
-ScannerFactory.
+ScannerFactory.
+
 
 In addition we each implemented one of the required drivers:
 
 ExamBuilder=Alex
-ExamTaker=Macej
+ExamTaker=Maciej
 ExamGrader=Tim
 
 To run the program:
